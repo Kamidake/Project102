@@ -1,0 +1,28 @@
+name: Update M3U Playlist
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs daily at 00:00 UTC
+  workflow_dispatch: # Allows you to run it manually from the Actions tab
+
+jobs:
+  update-playlist:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run update script
+        env:
+          M3U_USERNAME: ${{ secrets.M3U_USERNAME }}
+          M3U_PASSWORD: ${{ secrets.M3U_PASSWORD }}
+        run: python update_playlist.py
