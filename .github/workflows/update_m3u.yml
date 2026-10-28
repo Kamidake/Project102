@@ -2,7 +2,7 @@ name: Update M3U Playlist
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs daily at 00:00 UTC
+    - cron: '*/15 * * * *' # Runs daily at 00:00 UTC
   workflow_dispatch: # Allows you to run it manually from the Actions tab
 
 jobs:
