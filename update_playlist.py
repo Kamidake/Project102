@@ -2,8 +2,8 @@ import os
 import requests
 
 # Retrieve credentials from GitHub Secrets
-username = os.environ.get("M3U_USERNAME")
-password = os.environ.get("M3U_PASSWORD")
+username = os.environ.get("kamidake@xmailer.be")
+password = os.environ.get("Gogo1008%")
 
 login_url = "https://m3u.in/api/account/login/"
 login_payload = {
